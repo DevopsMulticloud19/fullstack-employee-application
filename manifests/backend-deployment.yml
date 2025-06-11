@@ -19,9 +19,20 @@ spec:
           image: 222634377087.dkr.ecr.us-east-1.amazonaws.com/backend:1
           ports:
             - containerPort: 8080
-
+          env:
+            - name: SPRING_DATASOURCE_URL
+              value: jdbc:mysql://database-1.cybewuoagg5n.us-east-1.rds.amazonaws.com
+            - name: SPRING_DATASOURCE_USERNAME
+              value: admin
+            - name: SPRING_DATASOURCE_PASSWORD
+              value: Admin123
+            - name: SPRING_DATASOURCE_DRIVER_CLASS_NAME
+              value: com.mysql.cj.jdbc.Driver
+            - name: SPRING_JPA_HIBERNATE_DDL_AUTO
+              value: update
 
 ---
+
 apiVersion: v1
 kind: Service
 metadata:
